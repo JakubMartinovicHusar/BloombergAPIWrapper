@@ -9,7 +9,7 @@ using System.Threading;
 
 namespace BloombergAPIWrapper.Messaging
 {
-    public abstract class BloombergResponse<T>
+    public abstract class Response<T>
     {
         protected static readonly Name EXCEPTIONS = Name.GetName("exceptions");
         protected static readonly Name FIELD_ID = Name.GetName("fieldId");
@@ -20,7 +20,7 @@ namespace BloombergAPIWrapper.Messaging
         public List<Bloomberglp.Blpapi.Message> Messages = new List<Bloomberglp.Blpapi.Message>();
 
         object RequestClass;
-        public BloombergResponse(object RequestClass)
+        public Response(object RequestClass)
         {
             this.RequestClass = RequestClass;
         }
@@ -114,9 +114,9 @@ namespace BloombergAPIWrapper.Messaging
             {
                 foreach (Attribute a in pi.GetCustomAttributes(true))
                 {
-                    if (a is BloombergDataAttribute)
+                    if (a is DataAttribute)
                     {
-                        BloombergDataAttribute da = (BloombergDataAttribute)a;
+                        DataAttribute da = (DataAttribute)a;
                         if (da.Retrievable == true)
                         {
                             if (da.IsArray == true)

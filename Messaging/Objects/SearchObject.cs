@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace BloombergAPIWrapper.Messaging.Objects
 {
-    [BloombergDataClassAttribute]
-    public class BloombergSearchObject
+    [DataClassAttribute]
+    public class SearchObject
     {
-        [BloombergDataAttribute(FieldName = "StringValue", Fillable = false)]
+        [DataAttribute(FieldName = "StringValue", Fillable = false)]
         public string SecurityCode { get; set; }
     }
 }

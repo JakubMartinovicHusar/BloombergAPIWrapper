@@ -7,11 +7,11 @@ using BloombergAPIWrapper.Messaging.Responses;
 
 namespace BloombergAPIWrapper.Messaging.Requests
 {
-    public class BloombergHistoricalDataRequest<T> : BloombergRequest<T>
+    public class DescriptionRequest<T> : Request<T>
     {
         List<string> listOfSecurities = new List<string>();
         
-        protected override string GetOperationName() { return "HistoricalDataRequest"; }
+        protected override string GetOperationName() { return "ReferenceDataRequest"; }
         
         public void AddSecurity(string Security) {
             listOfSecurities.Add(Security);
@@ -24,20 +24,11 @@ namespace BloombergAPIWrapper.Messaging.Requests
                 {
                     BloombergRequest.Append("securities", security);
                 }
-            BloombergRequest.Set("periodicitySelection", Periodicity);
-            BloombergRequest.Set("startDate", TimeFrom.ToString("yyyyMMdd"));
-            BloombergRequest.Set("endDate", TimeTo.ToString("yyyyMMdd"));
         }
 
         internal override Type GetUnderlyingResponseType()
         {
-            return typeof(BloombergHistoricalDataResponse<T>);
+            return typeof(DescriptionResponse<T>);
         }
-
-        public DateTime TimeFrom { get; set; }
-
-        public DateTime TimeTo { get; set; }
-
-        public string Periodicity { get; set; }
     }
 }

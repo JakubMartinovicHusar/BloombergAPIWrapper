@@ -7,17 +7,12 @@ using BloombergAPIWrapper.Messaging.Responses;
 
 namespace BloombergAPIWrapper.Messaging.Requests
 {
-    public class BloombergSearchRequest<BloombergSearchObject> : BloombergRequest<BloombergSearchObject>
+    public class SearchRequest<SearchObject> : Request<SearchObject>
     {
         public string Domain { get; set; }
         int limit = 5000;
         public int Limit { get { return limit; } set { limit = value; } }
-        /*internal override SessionOptions GetSessionOptions() { 
-            var sessionOptions = new SessionOptions();
-            sessionOptions.ServerHost = "localhost";
-            sessionOptions.ServerPort = 8194;
-            return sessionOptions;
-        }*/
+
         internal override string GetService() { return "//blp/exrsvc"; }
         protected override string GetOperationName() { return "ExcelGetGridRequest"; }
         
@@ -25,13 +20,11 @@ namespace BloombergAPIWrapper.Messaging.Requests
         {
             Element securities = BloombergRequest.GetElement("Domain");
             securities.SetValue(Domain);
-            //Element option = BloombergRequest.GetElement("Option");
-            //option.AppendValue(String.Format("Limit={0}", Limit));
         }
 
         internal override Type GetUnderlyingResponseType()
         {
-            return typeof(BloombergSearchResponse<BloombergSearchObject>);
+            return typeof(SearchResponse<SearchObject>);
         }
     }
 }

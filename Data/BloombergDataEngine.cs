@@ -13,13 +13,13 @@ namespace BloombergAPIWrapper.Data
     /// <summary>
     /// Bloomberg data engine serves for cracking of messages predefined in namespace .Messaging.Responses
     /// </summary>
-    public class BloombergDataEngine
+    public class DataEngine
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="BloombergDataEngine"/> class. This provides basic functions for cracking of various bloomberg responses, all of various types which are present under namespace Messaging.Responses
+        /// Initializes a new instance of the <see cref="DataEngine"/> class. This provides basic functions for cracking of various bloomberg responses, all of various types which are present under namespace Messaging.Responses
         /// </summary>
         /// <param name="session">The session.</param>
-        public BloombergDataEngine(Session session) {
+        public DataEngine(Session session) {
             this.session = session;
         }
 
@@ -39,10 +39,10 @@ namespace BloombergAPIWrapper.Data
         /// <param name="service">The service is default parameter with default value null. If argument is not supplied service is created by the method.</param>
         /// <returns></returns>
         /// <exception cref="System.Exception">Request was not specified.</exception>
-        public BloombergResponse<T> RetrieveData<T>(BloombergRequest<T> request, Service service=null, bool Async = true)
+        public Response<T> RetrieveData<T>(Request<T> request, Service service=null, bool Async = true)
         {
             //Session session;
-            BloombergResponse<T> result = (BloombergResponse<T>)Activator.CreateInstance(request.GetUnderlyingResponseType(), new object[]{request.RequestClass});
+            Response<T> result = (Response<T>)Activator.CreateInstance(request.GetUnderlyingResponseType(), new object[]{request.RequestClass});
             Type t = typeof(T);
 
             Request blRequest;

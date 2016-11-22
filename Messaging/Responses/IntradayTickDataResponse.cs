@@ -5,7 +5,6 @@ using System.Text;
 using Bloomberglp.Blpapi;
 using System.Reflection;
 using BloombergAPIWrapper.Data.Attributes;
-using ExtendedDataCollections.Collections;
 
 namespace BloombergAPIWrapper.Messaging.Responses
 {
@@ -13,12 +12,12 @@ namespace BloombergAPIWrapper.Messaging.Responses
     /// Bloomberg intraday data response type, processes messages with description content, cracked and parsed result is accessible direcly in class through indexer or properties.
     /// </summary>
     /// <typeparam name="T">Custom type with defined attributes that determine how is message parsed.</typeparam>
-    public class BloombergIntradayTickDataResponse<T> : BloombergResponse<T>
+    public class IntradayTickDataResponse<T> : Response<T>
     {
         Type t = typeof(T);
-        BigList<T> data = new BigList<T>();
+        List<T> data = new List<T>();
 
-        public BloombergIntradayTickDataResponse(object RequestClass) : base(RequestClass) { }
+        public IntradayTickDataResponse(object RequestClass) : base(RequestClass) { }
 
         /// <summary>
         /// Response data in form of list.
@@ -26,9 +25,9 @@ namespace BloombergAPIWrapper.Messaging.Responses
         /// <value>
         /// The data.
         /// </value>
-        public BigList<T> Data { get { return data; } }
+        public List<T> Data { get { return data; } }
 
-        public T this[ulong index]
+        public T this[int index]
         {
             get { return data[index]; }
         }

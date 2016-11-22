@@ -10,7 +10,7 @@ namespace BloombergAPIWrapper.Data.Attributes
     /// Bloomberg data attribute only assignable to property defines the data that should be serving as parameters, fields or overrides
     /// </summary>
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
-    public class BloombergDataAttribute : Attribute
+    public class DataAttribute : Attribute
     {
         /// <summary>
         /// The fillable option specifies if this should be filled to the request
@@ -32,7 +32,7 @@ namespace BloombergAPIWrapper.Data.Attributes
         /// <summary>
         /// The type of field which is in use
         /// </summary>
-        public BloombergDataAttributeType Type = BloombergDataAttributeType.Field;
+        public DataAttributeType Type = DataAttributeType.Field;
 
         /// <summary>
         /// Specifies if type is an array.
@@ -56,14 +56,14 @@ namespace BloombergAPIWrapper.Data.Attributes
     /// General definitions for cracking of the message on class level
     /// </summary>
     [AttributeUsage(AttributeTargets.Class)]
-    public class BloombergDataClassAttribute : Attribute
+    public class DataClassAttribute : Attribute
     {
     }
 
     /// <summary>
     /// Specifies type of fields, which could be field or override
     /// </summary>
-    public enum BloombergDataAttributeType
+    public enum DataAttributeType
     {
         [Description("fields")]
         Field,

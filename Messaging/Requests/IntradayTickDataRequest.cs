@@ -7,11 +7,11 @@ using BloombergAPIWrapper.Messaging.Responses;
 
 namespace BloombergAPIWrapper.Messaging.Requests
 {
-    public class BloombergIntradayTickDataRequest<T> : BloombergRequest<T>
+    public class IntradayTickDataRequest<T> : Request<T>
     {
        
 
-        public BloombergIntradayTickDataRequest() :  base(){
+        public IntradayTickDataRequest() :  base(){
             EventTypes = new List<string>();
         }
 
@@ -36,7 +36,7 @@ namespace BloombergAPIWrapper.Messaging.Requests
 
         internal override Type GetUnderlyingResponseType()
         {
-            return typeof(BloombergIntradayTickDataResponse<T>);
+            return typeof(IntradayTickDataResponse<T>);
         }
 
         public DateTime TimeFrom { get; set; }

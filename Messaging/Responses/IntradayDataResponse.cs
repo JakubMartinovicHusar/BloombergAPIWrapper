@@ -12,10 +12,10 @@ namespace BloombergAPIWrapper.Messaging.Responses
     /// Bloomberg intraday data response type, processes messages with description content, cracked and parsed result is accessible direcly in class through indexer or properties.
     /// </summary>
     /// <typeparam name="T">Custom type with defined attributes that determine how is message parsed.</typeparam>
-    public class BloombergIntradayDataResponse<T> : BloombergResponse<T>
+    public class IntradayDataResponse<T> : Response<T>
     {
 
-        public BloombergIntradayDataResponse(object RequestClass) : base(RequestClass) { }
+        public IntradayDataResponse(object RequestClass) : base(RequestClass) { }
 
         Type t = typeof(T);
         List<T> data = new List<T>();

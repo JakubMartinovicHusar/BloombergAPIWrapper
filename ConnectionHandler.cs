@@ -12,24 +12,24 @@ using BloombergAPIWrapper.Messaging;
 
 namespace BloombergAPIWrapper
 {
-    public class BloombergConnectionHandler
+    public class ConnectionHandler
     {
 
-        public BloombergConnectionHandler() {
+        public ConnectionHandler() {
 
             Initialize();
         }
 
         static Session sessionData = null;
         static bool connected;
-        static BloombergDataEngine engine;
+        static DataEngine engine;
         /// <summary>
         /// Gets the engine.
         /// </summary>
         /// <value>
         /// The engine.
         /// </value>
-        public BloombergDataEngine Engine{ 
+        public DataEngine Engine{ 
             get {return engine;}
         }
         static SessionOptions sessionOptions = new SessionOptions();
@@ -84,7 +84,7 @@ namespace BloombergAPIWrapper
                     {
                         throw new Exception("System can not connect to service of Bloomberg API");
                     }
-                    engine = new BloombergDataEngine(sessionData);
+                    engine = new DataEngine(sessionData);
                     connected = true;
                     if (BloombergConnectionChanged != null) BloombergConnectionChanged((object)this, new EventArgs());
                 }

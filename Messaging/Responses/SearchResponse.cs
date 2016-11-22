@@ -12,11 +12,11 @@ namespace BloombergAPIWrapper.Messaging.Responses
     /// Bloomberg description response type, processes messages with description content, cracked and parsed result is accessible direcly in class through indexer or properties.
     /// </summary>
     /// <typeparam name="T">Custom type with defined attributes that determine how is message parsed.</typeparam>
-    public class BloombergSearchResponse<BloombergSearchObject> : BloombergResponse<BloombergSearchObject>, IEnumerable<BloombergSearchObject>
+    public class SearchResponse<BloombergSearchObject> : Response<BloombergSearchObject>, IEnumerable<BloombergSearchObject>
     {
         Type t = typeof(BloombergSearchObject);
         List<BloombergSearchObject> data = new List<BloombergSearchObject>();
-        public BloombergSearchResponse(object RequestClass) : base(RequestClass) { }
+        public SearchResponse(object RequestClass) : base(RequestClass) { }
        
         public BloombergSearchObject this[int index]
         {

@@ -8,10 +8,10 @@ using BloombergAPIWrapper.Data.Attributes;
 
 namespace BloombergAPIWrapper.Messaging
 {
-    public abstract class BloombergRequest<T>
+    public abstract class Request<T>
     {
 
-        public BloombergRequest() {
+        public Request() {
             requestClass = (T)Activator.CreateInstance(typeof(T));
         }
         internal virtual SessionOptions GetSessionOptions() { return null; }
@@ -44,10 +44,10 @@ namespace BloombergAPIWrapper.Messaging
 
                 foreach (Attribute a in i.GetCustomAttributes(true))
                 {
-                    if (a is BloombergDataAttribute)
+                    if (a is DataAttribute)
                     {
-                        BloombergDataAttribute da = (BloombergDataAttribute)a;
-                        if (da.Fillable == true && da.Type == BloombergDataAttributeType.Field)
+                        DataAttribute da = (DataAttribute)a;
+                        if (da.Fillable == true && da.Type == DataAttributeType.Field)
                             BloombergRequest.Append(Global.GetEnumDescription(da.Type), (da.FieldName != null ? da.FieldName : i.Name));
                     }
                 }
@@ -61,11 +61,11 @@ namespace BloombergAPIWrapper.Messaging
             {
                 foreach (Attribute a in i.GetCustomAttributes(true))
                 {
-                    if (a is BloombergDataAttribute)
+                    if (a is DataAttribute)
                     {
                        
-                        BloombergDataAttribute da = (BloombergDataAttribute)a;
-                        if (da.Fillable == true && da.Type == BloombergDataAttributeType.Override){
+                        DataAttribute da = (DataAttribute)a;
+                        if (da.Fillable == true && da.Type == DataAttributeType.Override){
                             if (overrides == null)
                                overrides = BloombergRequest["overrides"]; 
 

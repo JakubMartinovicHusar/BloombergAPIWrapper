@@ -7,7 +7,7 @@ using BloombergAPIWrapper.Messaging.Responses;
 
 namespace BloombergAPIWrapper.Messaging.Requests
 {
-    public class BloombergIntradayDataRequest<T> : BloombergRequest<T>
+    public class IntradayDataRequest<T> : Request<T>
     {
        
         protected override string GetOperationName() { return "IntradayBarRequest"; }
@@ -31,7 +31,7 @@ namespace BloombergAPIWrapper.Messaging.Requests
 
         internal override Type GetUnderlyingResponseType()
         {
-            return typeof(BloombergIntradayDataResponse<T>);
+            return typeof(IntradayDataResponse<T>);
         }
 
         public DateTime TimeFrom { get; set; }

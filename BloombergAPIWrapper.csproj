@@ -48,30 +48,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BloombergConnectionHandler.cs" />
+    <Compile Include="ConnectionHandler.cs" />
     <Compile Include="Data\BloombergDataAttribute.cs" />
     <Compile Include="Data\BloombergDataEngine.cs" />
     <Compile Include="Global.cs" />
-    <Compile Include="Messaging\BloombergRequest.cs" />
-    <Compile Include="Messaging\BloombergResponse.cs" />
-    <Compile Include="Messaging\Objects\BloombergSearchObject.cs" />
-    <Compile Include="Messaging\Requests\BloombergDescriptionRequest.cs" />
-    <Compile Include="Messaging\Requests\BloombergHistoricalDataRequest.cs" />
-    <Compile Include="Messaging\Requests\BloombergIntradayDataRequest.cs" />
-    <Compile Include="Messaging\Requests\BloombergIntradayTickDataRequest.cs" />
-    <Compile Include="Messaging\Requests\BloombergSearchRequest.cs" />
-    <Compile Include="Messaging\Responses\BloombergDescriptionResponse.cs" />
-    <Compile Include="Messaging\Responses\BloombergHistoricalDataResponse.cs" />
-    <Compile Include="Messaging\Responses\BloombergIntradayDataResponse.cs" />
-    <Compile Include="Messaging\Responses\BloombergIntradayTickDataResponse.cs" />
-    <Compile Include="Messaging\Responses\BloombergSearchResponse.cs" />
+    <Compile Include="Messaging\Request.cs" />
+    <Compile Include="Messaging\Response.cs" />
+    <Compile Include="Messaging\Objects\SearchObject.cs" />
+    <Compile Include="Messaging\Requests\DescriptionRequest.cs" />
+    <Compile Include="Messaging\Requests\HistoricalDataRequest.cs" />
+    <Compile Include="Messaging\Requests\IntradayDataRequest.cs" />
+    <Compile Include="Messaging\Requests\IntradayTickDataRequest.cs" />
+    <Compile Include="Messaging\Requests\SearchRequest.cs" />
+    <Compile Include="Messaging\Responses\DescriptionResponse.cs" />
+    <Compile Include="Messaging\Responses\HistoricalDataResponse.cs" />
+    <Compile Include="Messaging\Responses\IntradayDataResponse.cs" />
+    <Compile Include="Messaging\Responses\IntradayTickDataResponse.cs" />
+    <Compile Include="Messaging\Responses\SearchResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ExtendedDataCollections\ExtendedDataCollections.csproj">
-      <Project>{eb42692b-31df-4a7a-9dd9-174ab837f2e1}</Project>
-      <Name>ExtendedDataCollections</Name>
-    </ProjectReference>
+    <Content Include="Lib\Bloomberglp.Blpapi.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
